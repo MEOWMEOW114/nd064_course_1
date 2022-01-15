@@ -41,7 +41,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./project/techtrends
-          file: Dockerfile
+          # file: Dockerfile
           platforms: linux/amd64
           push: true
           tags: leehc114/techtrends:latest
