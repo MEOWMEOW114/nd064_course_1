@@ -41,5 +41,5 @@ spec:
               cpu: { { .Values.deploy.resources.requests.cpu } }
               memory: { { .Values.deploy.resources.requests.memory } }
             limits:
-                cpu: { { .Values.deploy.resources.limits.cpu } }
+              cpu: { { .Values.deploy.resources.limits.cpu } }
               memory: { { .Values.deploy.resources.limits.memory } }
