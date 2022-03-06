@@ -9,9 +9,9 @@ deploy:
   replicaCount: 5
   resources:
     requests:
-      cpu: 350m
-      memory: 128Mi
+      cpu: 300m
+      memory: 90Mi
     limits:
       cpu: 500m
-      memory: 256Mi
+      memory: 128Mi
 
