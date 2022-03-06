@@ -4,7 +4,7 @@ from flask import Flask, jsonify, json, render_template, request, url_for, redir
 from werkzeug.exceptions import abort
 from datetime import datetime
 import logging
-logging.basicConfig( encoding='utf-8', level=logging.DEBUG)
+logging.basicConfig( level=logging.DEBUG)
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
@@ -125,4 +125,4 @@ def create():
 
 # start the application on port 3111
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='3111')
+    app.run(host='0.0.0.0', port='3113')
