@@ -1,0 +1,32 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: nd064-c1
+nodes:
+  - role: control-plane
+    kubeadmConfigPatches:
+      - |
+        kind: InitConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "ingress-ready=true"        
+    extraPortMappings:
+      - containerPort: 5678
+        hostPort: 5678
+        protocol: TCP
+      - containerPort: 3111
+        hostPort: 3111
+        protocol: TCP
+      - containerPort: 4111
+        hostPort: 4111
+        protocol: TCP
+      - containerPort: 80
+        hostPort: 80
+        protocol: TCP
+      - containerPort: 443
+        hostPort: 443
+        protocol: TCP
+      - containerPort: 31111
+        hostPort: 31111
+        protocol: TCP
+
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml

@@ -3,10 +3,10 @@ kind: Deployment
 metadata:
   labels:
     app: techtrends
-  name: techtrends
-  namespace: { { .Values.namespace.name } }
+  name: techtrend
+  namespace: {{ .Values.namespace.name }}
 spec:
-  replicas: { { .Values.deploy.replicaCount } }
+  replicas: {{ .Values.deploy.replicaCount }}
   selector:
     matchLabels:
       app: techtrends
@@ -23,23 +23,23 @@ spec:
       containers:
         - image: leehc114/techtrends:latest
           ports:
-            - containerPort: { { .Values.deploy.containerPort } }
+            - containerPort: {{ .Values.deploy.containerPort }}
           livenessProbe:
             httpGet:
               path: /healthz
-              port: { { .Values.deploy.containerPort } }
+              port: {{ .Values.deploy.containerPort }}
           readinessProbe:
             httpGet:
               path: /healthz
-              port: { { .Values.deploy.containerPort } }
+              port: {{ .Values.deploy.containerPort }}
             initialDelaySeconds: 5
             periodSeconds: 5
-          imagePullPolicy: { { .Values.image.pullPolicy } }
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: techtrends
           resources:
             requests:
-              cpu: { { .Values.deploy.resources.requests.cpu } }
-              memory: { { .Values.deploy.resources.requests.memory } }
+              cpu: {{ .Values.deploy.resources.requests.cpu }}
+              memory: {{ .Values.deploy.resources.requests.memory }}
             limits:
-              cpu: { { .Values.deploy.resources.limits.cpu } }
-              memory: { { .Values.deploy.resources.limits.memory } }
+              cpu: {{ .Values.deploy.resources.limits.cpu }}
+              memory: {{ .Values.deploy.resources.limits.memory }}

@@ -1,0 +1,30 @@
+kind: Simple
+apiVersion: k3d.io/v1alpha3
+name: nd064-c1
+image: rancher/k3s:v1.22.4-k3s1
+servers: 1
+agents: 2
+ports:
+- port: 8008:30008
+  nodeFilters:
+  - loadbalancer
+- port: 8009:30009
+  nodeFilters:
+  - loadbalancer  
+- port: 8010:30010
+  nodeFilters:
+  - loadbalancer
+- port: 4112:4111
+  nodeFilters:
+  - loadbalancer
+- port: 5111:5111
+  nodeFilters:
+  - loadbalancer
+# options:
+#   k3s:
+#     extraServerArgs:
+#     - --no-deploy=traefik
+
+# k3d cluster create --config k3d.yaml
+# k3d cluster create nd064-c1 --port 4111:4111@loadbalancer --port 8443:443@loadbalancer --port 8082:30008@agent:0 --agents 2--image rancher/k3s:v1.19.3-k3s3
+# k3d cluster create nd064-c1 --agents 3 -p "30000-32767:30000-32767@server:0
